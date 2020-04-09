@@ -12,7 +12,7 @@ const regSchema= new mongoose.Schema({
     empPassword:String
 });
 const regmodel= mongoose.model('registrations',regSchema);
-mongoose.connect("");
+mongoose.connect("mongodb+srv://dbuser:ava1996@cluster0-xpwmn.mongodb.net/test?retryWrites=true&w=majority");
 app.get('/',(req,res)=>{
     res.send('hai');
 });
