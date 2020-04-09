@@ -27,6 +27,33 @@ app.post('/register',async(req,res)=>{
         res.status(500).send(error);
     }
 });
+app.post('/login',async(req,res)=>{
+    try {
+        var searchempCode=req.body.mycode;
+        var searchpassword= req.body.mypass;
+        regmodel.find({
+            $and:[
+                {
+                    "empCode":searchempCode
+                },
+                {
+                    "empPassword":searchpassword
+                }
+            ]
+        },(error,data)=>{
+            if(error){
+                throw error;
+                res.json({"status":"failed"});
+            }
+            else{
+                res.json({"status":"success"});
+            }
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+});
 app.listen(process.env.PORT || 3000,()=>{
     console.log("Server Started");
 });
