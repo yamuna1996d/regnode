@@ -41,11 +41,11 @@ app.post('/login',async(req,res)=>{
                 }
             ]
         },(error,data)=>{
-            if(data === true){
-                res.json({"status":"Success"});
+            if(error){
+                throw error;
             }
-            else{
-                res.json({"status":"Failed"});
+            else if (!data) {
+                res.json({"status":"Success"});
             }
         });
     } catch (error) {
