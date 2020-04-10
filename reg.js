@@ -44,7 +44,7 @@ app.post('/login',async(req,res)=>{
             if(error){
                 throw error;
             }
-            else if (!data) {
+            else if (data === null) {
                 res.json({"status":"Failed"});
             }
             else{
