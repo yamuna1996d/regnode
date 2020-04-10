@@ -45,10 +45,10 @@ app.post('/login',async(req,res)=>{
                 throw error;
             }
             if (data.length>0) {
-                res.json({"status":"Failed"});
+                res.json({"status":"Success"});
             }
             else{
-                res.json({"status":"Success"});
+                res.json({"status":"Failed"});
             }
         });
     } catch (error) {
